@@ -6,8 +6,8 @@
   
   <script>
     window.onload=function(){
-  var inputBox = document.getElementById('chatinput');
-var inputBox2 = document.getElementById('chatinput2');
+  var inputBox = document.getElementById('searchinput');
+var inputBox2 = document.getElementById('searchinput2');
 
 inputBox.onkeyup = function(){
 if (inputBox.value == ""){
@@ -83,8 +83,8 @@ document.getElementById('printchatbox').innerHTML = ""
 <body>
 
 <div class="form-style-8">
-<input type='text' name='fname' class='chatinput' id='chatinput' placeholder="Search terms (like tuple, or list, or printing to the screen)" onblur="event.preventDefault(); event.stopPropagation();" width=50%>
-<input type='text' name='fname' class='chatinput2' id='chatinput2' placeholder="Additional search terms (like python3, or docs.python.org)" onblur="event.preventDefault(); event.stopPropagation();" width=50%>
+<input type='text' name='fname' class='searchinput' id='searchinput' placeholder="Search terms (like tuple, or list, or printing to the screen)" onblur="event.preventDefault(); event.stopPropagation();" onClick="this.select();" width=50%>
+<input type='text' name='fname' class='searchinput2' id='searchinput2' placeholder="Additional search terms (like python3, or docs.python.org)" onblur="event.preventDefault(); event.stopPropagation();" onClick="this.select();" width=50%>
 
 <p>
 <div class='printchatbox' id='printchatbox'>
