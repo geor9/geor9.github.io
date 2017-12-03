@@ -1,37 +1,50 @@
 <head>
   <title>Fastergoogle</title>
-  
-  
-  
-  
+
+
+
+
   <script>
     window.onload=function(){
-  var inputBox = document.getElementById('searchinput');
+var inputBox = document.getElementById('searchinput');
 var inputBox2 = document.getElementById('searchinput2');
 
-inputBox.onkeyup = function(){
+inputBox.onkeydown = function(){
 if (inputBox.value == ""){
-document.getElementById('printchatbox').innerHTML = ""
-} else {
-document.getElementById('printchatbox').innerHTML = 
+document.getElementById('printresults').innerHTML = ""
+} else if (event.keyCode == 13){
+    document.getElementById('printresults').innerHTML =
     "<iframe src=\"http://www.google.com/search?q=" + inputBox.value + "+" + inputBox2.value + "&btnI\" style=\"position: absolute; height: 100%; width: 100%; border: none\">";
 }
 }
 
-inputBox2.onkeyup = function(){
+inputBox2.onkeydown = function(){
 if (inputBox.value == ""){
-document.getElementById('printchatbox').innerHTML = ""
-} else {
-    document.getElementById('printchatbox').innerHTML = 
+document.getElementById('printresults').innerHTML = ""
+} else if (event.keyCode == 13){
+    document.getElementById('printresults').innerHTML =
     "<iframe src=\"http://www.google.com/search?q=" + inputBox.value + "+" + inputBox2.value + "&btnI\" style=\"position: absolute; height: 100%; width: 100%; border: none\">";
 }
 }
+
+    function searchKeyPress(e)
+{
+    // look for window.event in case event isn't passed in
+    e = e || window.event;
+    if (e.keyCode == 13)
+    {
+
+        return false;
+    }
+    return true;
+}
+
     }
   </script>
-  
-  
-  
-  
+
+
+
+
   <style>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
 <style type="text/css">
@@ -48,7 +61,7 @@ document.getElementById('printchatbox').innerHTML = ""
 }
 .form-style-8 input[type="text"],
 .form-style-8 textarea,
-.form-style-8 select 
+.form-style-8 select
 {
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
@@ -71,9 +84,9 @@ document.getElementById('printchatbox').innerHTML = ""
 
 </style>
   </style>
-  
-  
-  
+
+
+
 </head>
 
 
@@ -87,7 +100,7 @@ document.getElementById('printchatbox').innerHTML = ""
 <input type='text' name='fname' class='searchinput2' id='searchinput2' placeholder="Additional search terms (like python3, or docs.python.org)" onblur="event.preventDefault(); event.stopPropagation();" onClick="this.select();" width=50%>
 
 <p>
-<div class='printchatbox' id='printchatbox'>
+<div class='printresults' id='printresults'>
 
 </div>
 </p>
